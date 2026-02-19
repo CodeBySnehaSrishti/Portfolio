@@ -81,9 +81,15 @@ body {
   position: relative;
 }
 .icon-container{
-  /* position: absolute; */
-  /* z-index: 15; */
-
+ display: flex;
+ align-items: center;
+}
+.hero-icon a{
+    color: #fff;
+}
+.hero-icon {
+    padding-left: 1em;
+    font-size: 30px;
 }
 
 .bg-video {
