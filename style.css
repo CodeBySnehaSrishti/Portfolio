@@ -41,20 +41,21 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background: #2a054d;
+  background: #0b0014;
 }
-
-/*---------------- background-video -------------------------*/
+/* ################################################### */
+/* ####################hero-section##################### */
+/* #################################################### */
 
 .hero-section {
 
-  height: 120vh;
+  height: 110vh;
   width: 100%;
   position: relative;
   overflow: hidden;
 
 }
-
+/* ##################### MOBILE-FIRST-APPROCH############### */
 .hero-content {
   z-index: 5;
   position: absolute;
@@ -62,7 +63,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.238);
+  background-color: rgba(0, 0, 0, 0.318);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,6 +80,11 @@ body {
   z-index: 15;
   position: relative;
 }
+.icon-container{
+  /* position: absolute; */
+  /* z-index: 15; */
+
+}
 
 .bg-video {
   height: 100%;
@@ -91,70 +97,32 @@ body {
   transform: translateZ(0);
   z-index: 1;
 }
-
-/* ========================marque================== */
+/* ################################################# */
+/* #################info-section################ */
+/* ############################################### */
 .info-section {
   position: relative;
-  margin-top: -110px;
+  margin-top: -70px;
   z-index: 10;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.487);
 }
 
-.info-section::before {
-  content: "";
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.03) 15%,
-      rgba(0, 0, 0, 0.08) 30%,
-      rgba(0, 0, 0, 0.18) 45%,
-      rgba(0, 0, 0, 0.32) 60%,
-      rgba(0, 0, 0, 0.42) 75%,
-      rgba(0, 0, 0, 0.487) 100%);
-  z-index: 20;
-  pointer-events: none;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  mask-image: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.5) 40%,
-      black 100%);
-  -webkit-mask-image: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.5) 40%,
-      black 100%);
-}
+/* ############ MARQUEE INFINITE SCROLL ############# */
 
 .marquee-container {
 
   width: 100%;
   height: 130px;
+  /* background-color: red; */
   left: 0;
   right: 0;
-  top: 60px;
+  top: 30px;
   position: relative;
   overflow: hidden;
 
 }
 
-.marquee-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  mask-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0)0%,
-      rgba(42, 2, 63, 0.646)20%,
-      rgb(42, 2, 63)55%,
-      rgb(42, 2, 63)100%,
-    );
- 
-  z-index: 1;
-}
-
-
-
-
-/* =========================== */
 .marquee-wrapper {
   overflow: hidden;
   position: absolute;
@@ -182,9 +150,11 @@ body {
   width: max-content;
   gap: 0;
   animation-play-state: paused;
-}
 
-/* In lines ko update karein */
+}
+/* ############### MARQUEE ANIMATION################# */
+
+
 .marquee-wrapper.black .marquee-content {
   animation: scroll-left 30s linear infinite;
   animation-play-state: paused;
@@ -236,26 +206,127 @@ body {
 
 
 
-/* ################################################ */
-/* ############ about section ####################### */
-/* #################################################### */
+/* ############ ABOUT CONTAINER ####################### */
+
 .about-container {
-  margin-top: 100px;
+  padding-block:10vh;
   width: 100%;
-  display: flex;
+  
+
+}
+.about-content{
+    width: 70%;
+    margin: auto;
+    display: flex;
   align-items: center;
-  justify-content: center;
- 
+/* background-color: red; */
 }
 
 .about-container article {
-  width: 80%;
-   text-align: center;
+  padding-top: 15vh;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 100;
+}
+.about-container article h3{
+ font-size: 20px;
+
+}
+.about-container article p{
+   margin-block: 0.5rem;
    font-size: 15px;
+   line-height: 1.1;
   
 }
+.btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 95%; */
+ 
+  margin: auto;
+}
+.btn-container .btn{
+ padding-right: 10px;
+}
 
-/* Responsive */
+#btn{
+  font-size: 18px;
+  width: 7rem;
+  padding-block: 8px;
+  border-radius: 7px;
+  border: none;
+  background-color: blue;
+  color: white;
+}
+
+
+/* ########################################## */
+/* ###########project-section####################### */
+/* ############################################ */
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 20vh;
+
+}
+
+.project-container h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.project-container .type {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  font-size: 12px;
+}
+
+
+
+.project {
+  /* min-height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  /* border: 2px solid red; */
+  max-width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.card {
+  background-color: rgba(24, 20, 56, 0.512);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 40);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content p {
+  color: rgb(189, 189, 189);
+  line-height: 1.5;
+}
+
+
+/*#################### MARQUEE  Responsive################ */
 @media (max-width: 768px) {
   .marquee-item {
     font-size: 1.1rem;
@@ -273,5 +344,27 @@ body {
 
   .marquee-wrapper {
     padding: 5px 0;
+  }
+}
+
+/* ###############CARD RESPONSIVE#################3 */
+
+@media screen and (max-width:800px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro h1 {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .intro h1 {
+    font-size: 40px;
   }
 }
