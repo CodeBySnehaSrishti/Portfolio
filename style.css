@@ -1,0 +1,277 @@
+/* ---------------value------------ */
+:root {
+  /* font-color */
+  --white: #fff;
+  /* font-family */
+  --font1: sans-serif;
+  /* font-size */
+  --fs-1: 1rem;
+  /* font-weight */
+  --fw-1: 500;
+}
+
+/* -------reset------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth wrapper styles */
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  overflow: visible;
+  width: 100%;
+}
+
+/* Rest of your existing CSS remains same */
+/* ... (sab purana CSS yahi rahega) ... */
+html {
+  font-family: var(--font1);
+  color: var(--white);
+  font-size: var(--fs-1);
+  font-weight: 500;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background: #2a054d;
+}
+
+/*---------------- background-video -------------------------*/
+
+.hero-section {
+
+  height: 120vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.hero-content {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.238);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 2.2rem;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.984);
+  margin: 10px 0;
+  z-index: 15;
+  position: relative;
+}
+
+.bg-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  z-index: 1;
+}
+
+/* ========================marque================== */
+.info-section {
+  position: relative;
+  margin-top: -110px;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.487);
+}
+
+.info-section::before {
+  content: "";
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.03) 15%,
+      rgba(0, 0, 0, 0.08) 30%,
+      rgba(0, 0, 0, 0.18) 45%,
+      rgba(0, 0, 0, 0.32) 60%,
+      rgba(0, 0, 0, 0.42) 75%,
+      rgba(0, 0, 0, 0.487) 100%);
+  z-index: 20;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      black 100%);
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      black 100%);
+}
+
+.marquee-container {
+
+  width: 100%;
+  height: 130px;
+  left: 0;
+  right: 0;
+  top: 60px;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.marquee-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0)0%,
+      rgba(42, 2, 63, 0.646)20%,
+      rgb(42, 2, 63)55%,
+      rgb(42, 2, 63)100%,
+    );
+ 
+  z-index: 1;
+}
+
+
+
+
+/* =========================== */
+.marquee-wrapper {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  padding: 8px 0;
+  z-index: 2;
+}
+
+.marquee-wrapper.black {
+  background-image: linear-gradient(90deg, #b302b9, #00196c);
+  top: 50%;
+  transform: translateY(-50%) rotate(-3deg);
+  z-index: 11;
+}
+
+.marquee-wrapper.purple {
+  background-image: linear-gradient(90deg, #4568dc, #f93dff);
+  top: 50%;
+  transform: translateY(-50%) rotate(3deg);
+  z-index: 12;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation-play-state: paused;
+}
+
+/* In lines ko update karein */
+.marquee-wrapper.black .marquee-content {
+  animation: scroll-left 30s linear infinite;
+  animation-play-state: paused;
+  /* Shuruat mein ruka rahega */
+}
+
+.marquee-wrapper.purple .marquee-content {
+  animation: scroll-right 30s linear infinite;
+  animation-play-state: paused;
+  /* Shuruat mein ruka rahega */
+}
+
+.marquee-item {
+  white-space: nowrap;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: 20px;
+
+}
+
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+
+}
+
+
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+/* ################################################ */
+/* ############ about section ####################### */
+/* #################################################### */
+.about-container {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.about-container article {
+  width: 80%;
+   text-align: center;
+   font-size: 15px;
+  
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marquee-item {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-item {
+    font-size: 1.1rem;
+  }
+
+  .marquee-container {
+    height: 100px;
+  }
+
+  .marquee-wrapper {
+    padding: 5px 0;
+  }
+}
