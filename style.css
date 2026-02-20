@@ -11,7 +11,8 @@
   /* font-family */
 
 }
-@font-face{
+
+@font-face {
   font-family: ff-1;
   src: url(fonts/DancingScript-VariableFont_wght.ttf);
 }
@@ -49,6 +50,7 @@ body {
   overflow-x: hidden;
   background: #0b0014;
 }
+
 /* ################################################### */
 /* ####################hero-section##################### */
 /* #################################################### */
@@ -61,6 +63,7 @@ body {
   overflow: hidden;
 
 }
+
 /* ##################### MOBILE-FIRST-APPROCH############### */
 .hero-content {
   z-index: 5;
@@ -89,22 +92,26 @@ body {
   position: relative;
   font-family: ff-1;
 }
-.heading{
+
+.heading {
   text-align: center;
   margin-bottom: 1.2rem;
 }
-.icon-container{
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 1rem;
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.hero-icon a{
-    color: #fff;
+
+.hero-icon a {
+  color: #fff;
 }
+
 .hero-icon {
-    /* padding-left: 1em; */
-    font-size: 30px;
+  /* padding-left: 1em; */
+  font-size: 30px;
 }
 
 .bg-video {
@@ -118,6 +125,7 @@ body {
   transform: translateZ(0);
   z-index: 1;
 }
+
 /* ################################################# */
 /* #################info-section################ */
 /* ############################################### */
@@ -173,6 +181,7 @@ body {
   animation-play-state: paused;
 
 }
+
 /* ############### MARQUEE ANIMATION################# */
 
 
@@ -199,88 +208,108 @@ body {
 
 }
 
-
-/* ####### marguee for big screen #################### */
-
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
+  .marquee-container {
+    top: 0;
   }
 
-  100% {
-    transform: translateX(-50%);
+  .marquee-wrapper {
+    padding: 4px 0px;
+  }
+
+  .marquee-wrapper.black {
+
+
+    transform: translateY(-50%) rotate(-8deg);
+
+  }
+
+  .marquee-wrapper.purple {
+
+    transform: translateY(-50%) rotate(8deg);
+
   }
 
 
-}
 
-
-
-@keyframes scroll-right {
-  0% {
-    transform: translateX(-50%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
 
 
 
 /* ############ ABOUT CONTAINER ####################### */
 
 .about-container {
-  padding-block:10vh;
-  width: 100%;
-  
+ margin-block:2rem ;
+}
+
+.about-content {
+display: flex;
+align-items: center;
+  background-color: #00196c;
+   padding: 10px;
+    width: 90%;
+    margin: auto;
+   position: relative;
 
 }
-.about-content{
-    width: 70%;
-    margin: auto;
-    display: flex;
-  align-items: center;
-/* background-color: red; */
-}
+
 
 .about-container article {
-  padding-top: 15vh;
+  padding: 10px;
+   margin:20px 40px;
+  margin-bottom: 100px;
+    background-color: red;
   text-align: center;
-  font-size: 15px;
-  font-weight: 100;
-}
-.about-container article h3{
- font-size: 20px;
-
-}
-.about-container article p{
-   margin-block: 0.5rem;
-   font-size: 15px;
-   line-height: 1.1;
+  
   
 }
-.btn-container{
+
+.about-container article h3 {
+  font-size: 16px;
+   
+}
+.about-container p {
+  color: linear-gradient(90deg, #4568dc, #f93dff);
+  margin-block: 0.2rem;
+  font-size: 12px;
+  line-height: 1.1;
+
+}
+/* btn */
+.btn-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 95%; */
- 
+  gap: 10px;
   margin: auto;
-}
-.btn-container .btn{
- padding-right: 10px;
+ 
 }
 
-#btn{
-  font-size: 18px;
-  width: 7rem;
-  padding-block: 8px;
-  border-radius: 7px;
+.btn-container .btn {
+  margin: auto;
+}
+
+#btn {
+  font-size: 14px;
+  width: 5rem;
+  padding-block: 5px;
+  border-radius: 4px;
   border: none;
-  background-color: blue;
+  background-color: rgba(255, 255, 255, 0.277);
   color: white;
+  
+}
+#btn:hover{
+  background-image:linear-gradient(90deg,rgb(255, 30, 255),rgb(91, 91, 254)) ;
+}
+/* double colon */
+
+.top{
+  position: absolute;
+  top:20px;
+
+}
+.bottom{
+   position: absolute;
+  bottom: 20;
 }
 
 
@@ -349,24 +378,34 @@ body {
 }
 
 
-/*#################### MARQUEE  Responsive################ */
-@media (max-width: 768px) {
-  .marquee-item {
-    font-size: 1.1rem;
+
+
+
+
+/* ####### marguee for big screen #################### */
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+
 }
 
-@media (max-width: 480px) {
-  .marquee-item {
-    font-size: 1.1rem;
+
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
   }
 
-  .marquee-container {
-    height: 100px;
-  }
-
-  .marquee-wrapper {
-    padding: 5px 0;
+  100% {
+    transform: translateX(0);
   }
 }
 
