@@ -8,6 +8,12 @@
   --fs-1: 1rem;
   /* font-weight */
   --fw-1: 500;
+  /* font-family */
+
+}
+@font-face{
+  font-family: ff-1;
+  src: url(fonts/DancingScript-VariableFont_wght.ttf);
 }
 
 /* -------reset------------- */
@@ -68,27 +74,36 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   pointer-events: none;
   position: relative;
+  line-height: 0.9;
 }
 
 .hero-content h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.984);
-  margin: 10px 0;
+  /* margin: 10px 0; */
   z-index: 15;
   position: relative;
+  font-family: ff-1;
+}
+.heading{
+  text-align: center;
+  margin-bottom: 1.2rem;
 }
 .icon-container{
  display: flex;
  align-items: center;
+ justify-content: center;
+ gap: 1rem;
 }
 .hero-icon a{
     color: #fff;
 }
 .hero-icon {
-    padding-left: 1em;
+    /* padding-left: 1em; */
     font-size: 30px;
 }
 
@@ -184,6 +199,8 @@ body {
 
 }
 
+
+/* ####### marguee for big screen #################### */
 
 
 @keyframes scroll-left {
