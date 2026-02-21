@@ -237,39 +237,46 @@ body {
 /* ############ ABOUT CONTAINER ####################### */
 
 .about-container {
- margin-block:2rem ;
+width: 100%;
+height: 100%;
 }
 
 .about-content {
 display: flex;
 align-items: center;
-  background-color: #00196c;
-   padding: 10px;
-    width: 90%;
+justify-content: center;
+  /* background-color: #00196c; */
+    /* width: 90%; */
     margin: auto;
    position: relative;
+   padding-block: 50px;
 
 }
 
 
 .about-container article {
+  margin: auto;
   padding: 10px;
-   margin:20px 40px;
-  margin-bottom: 100px;
-    background-color: red;
+   margin-inline: 70px;
+  /* margin-bottom: 100px; */
+    /* background-color: red; */
   text-align: center;
-  
-  
+  position: relative; /* ← yahi key change hai */
 }
 
 .about-container article h3 {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #4568dc, #f93dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
    
 }
 .about-container p {
   color: linear-gradient(90deg, #4568dc, #f93dff);
   margin-block: 0.2rem;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.1;
 
 }
@@ -304,12 +311,16 @@ align-items: center;
 
 .top{
   position: absolute;
-  top:20px;
+  top: -8px;
+  left: -40px;
 
 }
 .bottom{
    position: absolute;
-  bottom: 20;
+  bottom: 0;
+  right: -10px;
+  transform: scaleX(-1);
+ transform: scaleX(-1) scaleY(-1);
 }
 
 
@@ -430,3 +441,12 @@ align-items: center;
     font-size: 40px;
   }
 }
+
+/*  ################responiveness*/
+@media (min-width: 569px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
