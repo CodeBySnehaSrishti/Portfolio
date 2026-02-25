@@ -31,18 +31,13 @@ video.pause();
 video.currentTime = 0;
 
 // ===========================================================
+// marque banner
 
 const marqueeContents = document.querySelectorAll('.marquee-content');
 
-ScrollTrigger.create({
-    trigger: "body",
-    start: "top top",
-    end: "bottom bottom",
-    onUpdate: (self) => {
-        if (self.getVelocity() !== 0) {
-            marqueeContents.forEach(el => el.style.animationPlayState = 'running');
-        }
-    }
+// Duplicate content for seamless -50% loop
+marqueeContents.forEach(el => {
+    el.innerHTML = el.innerHTML + el.innerHTML;
 });
 
 let isScrolling;
@@ -54,8 +49,9 @@ window.addEventListener('scroll', () => {
     }, 300);
 }, { passive: true });
 
+
 // ===========================================================
-// SLIDER - dono sliders ke liye alag alag kaam karega
+// card-slider
 
 function initSlider(sliderContainer) {
     const slider = sliderContainer.querySelector(".slider");
