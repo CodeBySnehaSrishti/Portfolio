@@ -469,3 +469,52 @@ footer .copy-right{
 
 /*    responsive around 575px*/
 
+@media (min-width:576px){
+  .hero-content h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+.heading {
+  text-align: center;
+  margin-bottom: 0.9rem;
+}
+.icon-container {
+  gap: 1rem;
+}
+.hero-icon {
+  /* padding-left: 1em; */
+  font-size: 30px;
+}
+
+/* ----------------marguee banner------------ */
+
+.marquee-content .sign{
+  font-size: 20px;
+}
+
+/* MARQUEE ANIMATION*/
+
+.marquee-item {
+  font-size: 0.8rem;
+}
+
+
+.marquee-wrapper {
+  padding: 2px 0px;
+}
+
+.marquee-wrapper.black {
+
+
+  transform: translateY(-50%) rotate(-4deg);
+
+}
+
+.marquee-wrapper.purple {
+
+  transform: translateY(-50%) rotate(4deg);
+
+}
+
+
+}
