@@ -9,6 +9,7 @@
   /* font-weight */
   --fw-1: 500;
   /* font-family */
+  --ff-1:ff-1;
 
 }
 
@@ -132,7 +133,7 @@ body {
 /* ############################################### */
 .info-section {
   position: relative;
-  margin-top: -90px;
+  margin-top: -10vh;
   z-index: 10;
   width: 100%;
   height: auto;
@@ -156,7 +157,7 @@ body {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  padding: 5px 0;
+  padding: 5px ;
   z-index: 2;
 }
 
@@ -186,6 +187,7 @@ body {
 
 .marquee-content .sign {
   font-size: 10px;
+  
 }
 
 /* ############### MARQUEE ANIMATION################# */
@@ -194,13 +196,13 @@ body {
 .marquee-wrapper.black .marquee-content {
   animation: scroll-left 30s linear infinite;
   animation-play-state: paused;
-  /* Shuruat mein ruka rahega */
+  
 }
 
 .marquee-wrapper.purple .marquee-content {
   animation: scroll-right 30s linear infinite;
   animation-play-state: paused;
-  /* Shuruat mein ruka rahega */
+  
 }
 
 .marquee-item {
@@ -211,6 +213,7 @@ body {
   text-transform: capitalize;
   display: inline-block;
   padding-right: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
@@ -254,14 +257,6 @@ body {
     transform: translateX(0);
   }
 }
-
-
-
-
-
-
-
-
 
 /* ############ ABOUT CONTAINER ####################### */
 

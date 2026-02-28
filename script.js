@@ -35,19 +35,27 @@ video.currentTime = 0;
 
 const marqueeContents = document.querySelectorAll('.marquee-content');
 
-// Duplicate content for seamless -50% loop
 marqueeContents.forEach(el => {
     el.innerHTML = el.innerHTML + el.innerHTML;
+    el.style.animationDuration = '15s';
+    el.style.animationPlayState = 'paused'; // load pe band
 });
 
-let isScrolling;
+let marqueeTimer;
+
 window.addEventListener('scroll', () => {
+    // scroll hote hi chalu
     marqueeContents.forEach(el => el.style.animationPlayState = 'running');
-    window.clearTimeout(isScrolling);
-    isScrolling = setTimeout(() => {
+
+    clearTimeout(marqueeTimer);
+
+    // scroll rukne k 400ms baad band — video jaisa
+    marqueeTimer = setTimeout(() => {
         marqueeContents.forEach(el => el.style.animationPlayState = 'paused');
-    }, 300);
+    }, 400);
+
 }, { passive: true });
+
 
 
 // ===========================================================
@@ -97,7 +105,7 @@ function initSlider(sliderContainer) {
     prevBtn.addEventListener("click", () => { index--; slide(); resetAutoSlide(); });
 
     function startAutoSlide() {
-        autoSlide = setInterval(() => { index++; slide(); }, 3000);
+        autoSlide = setInterval(() => { index++; slide(); }, 3000); // 2s
     }
     function resetAutoSlide() {
         clearInterval(autoSlide);
