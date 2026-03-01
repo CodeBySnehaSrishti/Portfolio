@@ -67,45 +67,66 @@ function initSlider(sliderContainer) {
     const nextBtn = sliderContainer.querySelector(".next");
     const prevBtn = sliderContainer.querySelector(".prev");
 
-    const visibleCards = 3;
+    const visibleCards = 3; // Desktop view ke hisaab se
     let autoSlide;
 
+    // 1. Clones create karein
     const firstClones = cards.slice(0, visibleCards).map(c => c.cloneNode(true));
     const lastClones = cards.slice(-visibleCards).map(c => c.cloneNode(true));
 
+    // 2. DOM mein add karein
     firstClones.forEach(clone => slider.appendChild(clone));
     lastClones.reverse().forEach(clone => slider.prepend(clone));
 
+    // 3. Update width calculation
     const allCards = slider.querySelectorAll(".card");
-    const cardWidth = allCards[0].offsetWidth + 20;
     let index = visibleCards;
 
-    slider.style.transition = "none";
-    slider.style.transform = `translate3d(-${index * cardWidth}px, 0, 0)`;
+   function getCardWidth() {
+    const card = allCards[0];
+    const style = window.getComputedStyle(card);
+    const margin =
+        parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
-    function slide() {
-        slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
-        slider.style.transform = `translate3d(-${index * cardWidth}px, 0, 0)`;
+    return card.offsetWidth + margin;
+}
+
+    function updateSlider(animate = true) {
+        const cardWidth = getCardWidth();
+        slider.style.transition = animate ? "transform 0.6s cubic-bezier(0.4,0,0.2,1)" : "none";
+        slider.style.transform = `translateX(-${index * cardWidth}px)`;
     }
 
-    slider.addEventListener("transitionend", () => {
-        if (index >= allCards.length - visibleCards) {
-            slider.style.transition = "none";
-            index = visibleCards;
-            slider.style.transform = `translate3d(-${index * cardWidth}px, 0, 0)`;
-        }
-        if (index < visibleCards) {
-            slider.style.transition = "none";
-            index = allCards.length - visibleCards * 2;
-            slider.style.transform = `translate3d(-${index * cardWidth}px, 0, 0)`;
-        }
-    });
+    // Initial position bina animation ke
+    window.addEventListener('load', () => updateSlider(false));
 
-    nextBtn.addEventListener("click", () => { index++; slide(); resetAutoSlide(); });
-    prevBtn.addEventListener("click", () => { index--; slide(); resetAutoSlide(); });
+    // 4. Infinite Loop Logic
+    slider.addEventListener("transitionend", () => {
+    if (index >= allCards.length - visibleCards) {
+        slider.style.transition = "none";
+        index = visibleCards;
+        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
+        slider.offsetHeight; // force reflow
+        slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
+    }
+
+    if (index < visibleCards) {
+        slider.style.transition = "none";
+        index = allCards.length - visibleCards * 2;
+        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
+        slider.offsetHeight;
+        slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
+    }
+});
+
+    nextBtn.addEventListener("click", () => { index++; updateSlider(); resetAutoSlide(); });
+    prevBtn.addEventListener("click", () => { index--; updateSlider(); resetAutoSlide(); });
+
+    // Window resize par layout sahi rakhne ke liye
+    window.addEventListener('resize', () => updateSlider(false));
 
     function startAutoSlide() {
-        autoSlide = setInterval(() => { index++; slide(); }, 3000); // 2s
+        autoSlide = setInterval(() => { index++; updateSlider(); }, 3000);
     }
     function resetAutoSlide() {
         clearInterval(autoSlide);
@@ -113,8 +134,43 @@ function initSlider(sliderContainer) {
     }
 
     startAutoSlide();
-    slider.addEventListener("mouseenter", () => clearInterval(autoSlide));
-    slider.addEventListener("mouseleave", startAutoSlide);
-}
+  
 
-document.querySelectorAll(".slider-wrapper").forEach(initSlider);
+}
+  document.querySelectorAll(".slider-wrapper").forEach(wrapper => {
+    initSlider(wrapper);
+  })
+
+
+// ==============================================================
+  // modal logic
+//   =============================================================
+const moreBtn = document.getElementById('moreBtn');
+const moreModal = document.getElementById('moreModal');
+
+
+moreBtn.addEventListener('click', () => {
+    moreModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+
+
+document.getElementById('closeMoreModal').addEventListener('click', () => {
+    moreModal.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+
+
+moreModal.addEventListener('click', (e) => {
+    if (e.target === moreModal) { moreModal.classList.remove('active'); document.body.style.overflow = ''; }
+});
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        moreModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
