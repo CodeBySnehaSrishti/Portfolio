@@ -1,34 +1,34 @@
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-const video = document.querySelector(".bg-video");
-let scrollTimer;
+// const video = document.querySelector(".bg-video");
+// let scrollTimer;
 
-video.addEventListener('loadedmetadata', () => {
-    const videoDuration = video.duration;
+// video.addEventListener('loadedmetadata', () => {
+//     const videoDuration = video.duration;
 
-    window.addEventListener('scroll', () => {
-        video.play().catch(() => {});
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(() => {
-            video.pause();
-        }, 400);
-    }, { passive: true });
+//     window.addEventListener('scroll', () => {
+//         video.play().catch(() => {});
+//         clearTimeout(scrollTimer);
+//         scrollTimer = setTimeout(() => {
+//             video.pause();
+//         }, 400);
+//     }, { passive: true });
 
-    gsap.to(video, {
-        currentTime: videoDuration,
-        ease: "none",
-        scrollTrigger: {
-            trigger: "body",
-            start: "top top",
-            end: "+=0vh",
-            scrub: true,
-        }
-    });
-});
+//     gsap.to(video, {
+//         currentTime: videoDuration,
+//         ease: "none",
+//         scrollTrigger: {
+//             trigger: "body",
+//             start: "top top",
+//             end: "+=0vh",
+//             scrub: true,
+//         }
+//     });
+// });
 
-video.load();
-video.pause();
-video.currentTime = 0;
+// video.load();
+// video.pause();
+// video.currentTime = 0;
 
 // ===========================================================
 // marque banner
