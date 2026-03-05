@@ -79,7 +79,7 @@ body {
   background-color: #0000004e;
   width: 100%;
   height: 100%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   position: absolute;
   z-index: 5;
   display: flex;
@@ -110,7 +110,7 @@ border: none;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   padding: 1rem;
 }
 .name{
@@ -150,23 +150,58 @@ border: none;
   width: 100%;
   padding: 2.5rem;
 }
+
+.circle{
+  position: relative;
+  width: 80px;
+  height:80px ;
+  /* background: red; */
+  border-radius:50% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.text{
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  animation: anim 10s linear infinite;
+
+}
+
+@keyframes anim{
+  0%{
+    transform: rotate(0deg);
+  
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.text span{
+  position: absolute;
+  left: 50%;
+  font-size: 7px;
+  transform-origin:0 40px ;
+   letter-spacing: 20px;
+ 
+}
+
 .arrow-indicator{
  border: 1px solid white;
  border-radius:50% ;
- padding: 10px 20px 5px;
-
+ width: 80px;
+ height: 80px;
+ align-items: center;
 }
 
 /* ################################################# */
 /* #################info-section################ */
 /* ############################################### */
 .info-section {
-  position: relative;
-  /* margin-top: -10vh; */
-  z-index: 10;
   width: 100%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.226);
 }
 
 /* ############ MARQUEE INFINITE SCROLL ############# */
@@ -175,19 +210,13 @@ border: none;
 
   width: 100%;
   height: auto;
-  left: 0;
-  right: 0;
-  position: relative;
   overflow: hidden;
 
 }
 
 .marquee-wrapper {
   overflow: hidden;
-  /* position: absolute; */
   width: 100%;
-  /* padding: 20px; */
-  /* z-index: 2; */
 }
 
 .marquee-wrapper.black {
@@ -208,13 +237,10 @@ border: none;
   width: max-content;
   gap: 0;
   animation-play-state: paused;
-
+  -webkit-text-stroke:2px white;
+  color: transparent;
 }
 
-.marquee-content .sign {
-  font-size: 10px;
-
-}
 
 /* ############### MARQUEE ANIMATION################# */
 
@@ -234,7 +260,7 @@ border: none;
 .marquee-item {
   border: 2px solid linear-gradient(90deg, #4568dc, #f93dff);
   white-space: nowrap;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 500;
   color: linear-gradient(90deg, #4568dc, #f93dff);
   text-transform: capitalize;
@@ -244,26 +270,7 @@ border: none;
 
 }
 
-.marquee-container {
-  top: 0px;
-}
 
-.marquee-wrapper {
-  padding: 4px 0px;
-}
-
-/* .marquee-wrapper.black {
-
-
-  transform: translateY(-50%) rotate(0deg);
-
-}
-
-.marquee-wrapper.purple {
-
-  transform: translateY(-50%) rotate(0deg);
-
-} */
 
 @keyframes scroll-left {
   0% {

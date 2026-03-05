@@ -1,34 +1,9 @@
-// gsap.registerPlugin(ScrollTrigger);
+const text = document.querySelector('.text p');
+text.innerHTML = text.innerText.split('').map(
+    (char, i) =>
+        `<span style="transform:rotate(${i * 8.3}deg)">${char}</span>`
+).join('');
 
-// const video = document.querySelector(".bg-video");
-// let scrollTimer;
-
-// video.addEventListener('loadedmetadata', () => {
-//     const videoDuration = video.duration;
-
-//     window.addEventListener('scroll', () => {
-//         video.play().catch(() => {});
-//         clearTimeout(scrollTimer);
-//         scrollTimer = setTimeout(() => {
-//             video.pause();
-//         }, 400);
-//     }, { passive: true });
-
-//     gsap.to(video, {
-//         currentTime: videoDuration,
-//         ease: "none",
-//         scrollTrigger: {
-//             trigger: "body",
-//             start: "top top",
-//             end: "+=0vh",
-//             scrub: true,
-//         }
-//     });
-// });
-
-// video.load();
-// video.pause();
-// video.currentTime = 0;
 
 // ===========================================================
 // marque banner
@@ -82,14 +57,14 @@ function initSlider(sliderContainer) {
     const allCards = slider.querySelectorAll(".card");
     let index = visibleCards;
 
-   function getCardWidth() {
-    const card = allCards[0];
-    const style = window.getComputedStyle(card);
-    const margin =
-        parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    function getCardWidth() {
+        const card = allCards[0];
+        const style = window.getComputedStyle(card);
+        const margin =
+            parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
-    return card.offsetWidth + margin;
-}
+        return card.offsetWidth + margin;
+    }
 
     function updateSlider(animate = true) {
         const cardWidth = getCardWidth();
@@ -102,22 +77,22 @@ function initSlider(sliderContainer) {
 
     // 4. Infinite Loop Logic
     slider.addEventListener("transitionend", () => {
-    if (index >= allCards.length - visibleCards) {
-        slider.style.transition = "none";
-        index = visibleCards;
-        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
-        slider.offsetHeight; // force reflow
-        slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
-    }
+        if (index >= allCards.length - visibleCards) {
+            slider.style.transition = "none";
+            index = visibleCards;
+            slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
+            slider.offsetHeight; // force reflow
+            slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
+        }
 
-    if (index < visibleCards) {
-        slider.style.transition = "none";
-        index = allCards.length - visibleCards * 2;
-        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
-        slider.offsetHeight;
-        slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
-    }
-});
+        if (index < visibleCards) {
+            slider.style.transition = "none";
+            index = allCards.length - visibleCards * 2;
+            slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
+            slider.offsetHeight;
+            slider.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
+        }
+    });
 
     nextBtn.addEventListener("click", () => { index++; updateSlider(); resetAutoSlide(); });
     prevBtn.addEventListener("click", () => { index--; updateSlider(); resetAutoSlide(); });
@@ -134,16 +109,16 @@ function initSlider(sliderContainer) {
     }
 
     startAutoSlide();
-  
+
 
 }
-  document.querySelectorAll(".slider-wrapper").forEach(wrapper => {
+document.querySelectorAll(".slider-wrapper").forEach(wrapper => {
     initSlider(wrapper);
-  })
+})
 
 
 // ==============================================================
-  // modal logic
+// modal logic
 //   =============================================================
 const moreBtn = document.getElementById('moreBtn');
 const moreModal = document.getElementById('moreModal');
