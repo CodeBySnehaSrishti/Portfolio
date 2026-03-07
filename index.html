@@ -25,8 +25,10 @@
                     <p>SNEHA</p>
                     <P>SRISHTI</P>
                 </div>
-                <button class="eye"><img src="assets/eye.png" alt=""></button>
-                <button class="eye hide"><img src="assets/hide.png" alt=""></button>
+                <div class="eye-wrapper">
+                    <button class="eye"><img src="assets/eye.png" alt=""></button>
+                    <button class="eye hide"><img src="assets/hide.png" alt=""></button>
+                </div>
             </div>
 
 
@@ -85,22 +87,25 @@
     </main>
     <!-- ===========menubar================= -->
 
-    <nav class="fullscreen-nav" id="fullscreenNav">
-        <div class="nav-side-label"><span>SNEHA - SRISHTI - PORTFOLIO</span></div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="nav-socials">
-            <a href="#" class="nav-social-pill">GH</a>
-            <a href="#" class="nav-social-pill">LI</a>
-            <a href="#" class="nav-social-pill">TW</a>
-            <a href="#" class="nav-social-pill">BE</a>
-        </div>
-    </nav>
+   <nav class="fullscreen-nav" id="fullscreenNav">
+    <button class="nav-hide-btn" id="navHideBtn">
+        <img src="assets/hide.png" alt="">
+    </button>
+    <div class="nav-side-label"><span>SNEHA - SRISHTI - PORTFOLIO</span></div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-socials">
+        <a href="#" class="nav-social-pill">GH</a>
+        <a href="#" class="nav-social-pill">LI</a>
+        <a href="#" class="nav-social-pill">TW</a>
+        <a href="#" class="nav-social-pill">BE</a>
+    </div>
+</nav>
 
 
     <!--################################################ -->
@@ -123,10 +128,6 @@
             </div>
 
         </section>
-
-
-
-
         <div class="about-container">
 
             <p>
@@ -139,12 +140,6 @@
                 <button class="btn" id="blogBtn"> View Blog</button>
             </div>
         </div>
-
-
-
-
-
-
     </section>
 
     <!-- ================================================= -->
@@ -154,8 +149,10 @@
         <div class="modal-box">
             <div class="about-btns">
                 <button class="modal-close" id="closeMoreModal">&#10005;</button>
-                <button class="eye"><img src="assets/eye.png" alt=""></button>
-                <button class="eye hide"><img src="assets/hide.png" alt=""></button>
+                <div class="eye-wrapper modal-eye-wrapper">
+                    <button class="eye"><img src="assets/eye.png" alt=""></button>
+                    <button class="eye hide"><img src="assets/hide.png" alt=""></button>
+                </div>
             </div>
             <div class="modal-content">
                 <p>Developer Behind the Code</p>
