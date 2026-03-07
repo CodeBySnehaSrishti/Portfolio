@@ -152,3 +152,8 @@ document.getElementById('navHideBtn').addEventListener('click', closeNav);
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeModal(); closeNav(); }
 });
+
+
+// =============================================
+// contact form — emailjs
+// =============================================
