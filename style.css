@@ -26,22 +26,13 @@
   box-sizing: border-box;
 }
 
-/* Smooth wrapper styles */
-#smooth-wrapper {
-  overflow: hidden;
-}
 
-#smooth-content {
-  overflow: visible;
-  width: 100%;
-}
 
 /* Rest of your existing CSS remains */
 html {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: var(--white);
-  font-size: var(--fs-1);
-  font-weight: 100;
+
 }
 
 body {
@@ -78,7 +69,7 @@ body {
 }
 
 .container {
-  background-color: #0000004e;
+  background-color: #00000061;
   width: 100%;
   height: 100%;
   /* border: 2px solid red; */
@@ -263,7 +254,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 9998;
-  background: #03090f;
+  background: #001931;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,8 +271,8 @@ body {
 
 .nav-close-eye {
   position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
+  /* top: 1.2rem; */
+  /* right: 1.5rem; */
   background: none;
   border: none;
   cursor: pointer;
@@ -293,21 +284,19 @@ body {
 
 .fullscreen-nav.active .nav-close-eye {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(2);
 }
 
-.nav-close-eye img {
-  width: 42px;
-  filter: invert(1);
-}
 
+  /* width: 42px; */
+  /* filter: invert(1); */
 .nav-side-label {
   position: absolute;
-  left: 1.5rem;
+  left: -6rem;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
-  font-size: 10px;
-  letter-spacing: 4px;
+  font-size: 11px;
+  letter-spacing: 5px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
@@ -334,9 +323,9 @@ body {
 
 .fullscreen-nav ul li a {
   font-family: 'Playfair Display', 'Times New Roman', serif;
-  font-size: clamp(3.5rem, 10vw, 9.5rem);
+  font-size: 4rem;
   font-weight: 900;
-  color: #f5e40a;
+  color: #fefeec;
   text-decoration: none;
   text-transform: uppercase;
   line-height: 0.88;
@@ -354,7 +343,7 @@ body {
 }
 
 .fullscreen-nav ul li a:hover {
-  color: yellow;
+  color: rgb(182, 182, 253);
 }
 
 .nav-socials {
@@ -380,8 +369,8 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid rgba(245, 228, 10, 0.5);
-  color: rgba(245, 228, 10, 0.7);
+  border: 1.5px solid rgba(229, 229, 229, 0.5);
+  color: rgba(243, 243, 243, 0.7);
   text-decoration: none;
   font-size: 11px;
   font-weight: 700;
@@ -390,9 +379,9 @@ body {
 }
 
 .nav-social-pill:hover {
-  border-color: #f5e40a;
+  border-color: #eeeeee;
   color: #03090f;
-  background: #f5e40a;
+  background: #f2f2f2;
 }
 
 /* ################################################# */
@@ -1309,7 +1298,7 @@ footer .copy-right {
   }
 
   .about-container p {
-    font-weight: 100;
+   
     font-size: 30px;
     line-height: 1.2;
 
@@ -1324,15 +1313,12 @@ footer .copy-right {
   .portfolio-container {
     flex-direction: row;
     justify-content: space-around;
-    /* gap: rem; */
-    /* border: 2px solid red; */
     width: 80%;
     padding: 1rem;
-
   }
 
   .picture {
-    /* margin: auto; */
+   
     width: 260px;
     height: 310px;
   }
@@ -1343,14 +1329,13 @@ footer .copy-right {
     object-fit: cover;
     transform: scale(1.3);
     transform-origin: center;
-    /* object-position: top; */
+  
   }
 
   .about-me {
-    /* border: 2px solid red; */
-    /* width: 90%; */
-    padding-inline: 3rem;
-    display: unset;
+     width: 90%; 
+    padding-inline: 4rem;
+    /* display: unset; */
     margin-block: 20px;
   }
 
@@ -1358,33 +1343,18 @@ footer .copy-right {
     font-size: 30px;
     text-align: unset;
     letter-spacing: 1.5px;
-  }
+  } 
 
 
-  .about-me h4 {
+    .about-me h4 {
     padding-block: 10px;
-    font-size: 14px;
+    font-size: 25px;
     font-weight: 100;
     line-height: 1.2;
     text-align: unset;
-  }
-
-
-
-  /* ########################################## */
+  }  
+  
   /* ###########project-section####################### */
-  /* ############################################ */
-  .project-container {
-    max-width: 100%;
-    /* border: 2px solid red; */
-  }
-
-  .project-container h1 {
-    font-size: 30px;
-    font-weight: 600;
-    margin: 2rem;
-  }
-
   /* product slider */
   .slider-container {
     /* border: 2px solid red; */
@@ -1392,18 +1362,18 @@ footer .copy-right {
   }
 
   .type {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 30px;
+
   }
 
-  .slider-wrapper {
-    margin-bottom: 20px;
+  /* .slider-wrapper {
+    margin-bottom: 20px; */
     /* border: 2px solid red; */
-  }
+  /* } */
 
   .card {
-    min-width: 51%;
-    max-width: 51%;
+    min-width: 50%;
+    max-width: 50%;
   }
 
 
