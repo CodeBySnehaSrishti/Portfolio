@@ -32,15 +32,15 @@ window.addEventListener('scroll', () => {
 // card slider
 // =============================================
 function initSlider(sliderContainer) {
-    const slider    = sliderContainer.querySelector(".slider");
-    const cards     = Array.from(sliderContainer.querySelectorAll(".card"));
-    const nextBtn   = sliderContainer.querySelector(".next");
-    const prevBtn   = sliderContainer.querySelector(".prev");
+    const slider = sliderContainer.querySelector(".slider");
+    const cards = Array.from(sliderContainer.querySelectorAll(".card"));
+    const nextBtn = sliderContainer.querySelector(".next");
+    const prevBtn = sliderContainer.querySelector(".prev");
     const visibleCards = 3;
     let autoSlide;
 
     const firstClones = cards.slice(0, visibleCards).map(c => c.cloneNode(true));
-    const lastClones  = cards.slice(-visibleCards).map(c => c.cloneNode(true));
+    const lastClones = cards.slice(-visibleCards).map(c => c.cloneNode(true));
     firstClones.forEach(clone => slider.appendChild(clone));
     lastClones.reverse().forEach(clone => slider.prepend(clone));
 
@@ -48,15 +48,15 @@ function initSlider(sliderContainer) {
     let index = visibleCards;
 
     function getCardWidth() {
-        const card   = allCards[0];
-        const style  = window.getComputedStyle(card);
+        const card = allCards[0];
+        const style = window.getComputedStyle(card);
         const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
         return card.offsetWidth + margin;
     }
 
     function updateSlider(animate = true) {
         slider.style.transition = animate ? "transform 0.6s cubic-bezier(0.4,0,0.2,1)" : "none";
-        slider.style.transform  = `translateX(-${index * getCardWidth()}px)`;
+        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
     }
 
     function resetToValid() {
@@ -64,7 +64,7 @@ function initSlider(sliderContainer) {
         if (index >= total - visibleCards) index = visibleCards;
         if (index < visibleCards) index = total - visibleCards * 2;
         slider.style.transition = "none";
-        slider.style.transform  = `translateX(-${index * getCardWidth()}px)`;
+        slider.style.transform = `translateX(-${index * getCardWidth()}px)`;
         slider.offsetHeight; // force reflow
     }
 
@@ -76,8 +76,8 @@ function initSlider(sliderContainer) {
         startAutoSlide();
     }
 
-    window.addEventListener('load',   () => updateSlider(false));
-    window.addEventListener('resize', () => updateSlider(false));
+    // initSlider ke BAHAR rakhna chahiye
+    window.addEventListener('load', () => document.querySelectorAll(".slider-wrapper").forEach(initSlider));
     slider.addEventListener('transitionend', resetToValid);
     nextBtn.addEventListener('click', () => { index++; updateSlider(); resetAutoSlide(); });
     prevBtn.addEventListener('click', () => { index--; updateSlider(); resetAutoSlide(); });
@@ -91,10 +91,10 @@ document.querySelectorAll(".slider-wrapper").forEach(initSlider);
 // =============================================
 // modal
 // =============================================
-const moreBtn   = document.getElementById('moreBtn');
+const moreBtn = document.getElementById('moreBtn');
 const moreModal = document.getElementById('moreModal');
 
-function openModal()  { moreModal.classList.add('active');    document.body.style.overflow = 'hidden'; }
+function openModal() { moreModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeModal() { moreModal.classList.remove('active'); document.body.style.overflow = ''; }
 
 moreBtn.addEventListener('click', openModal);
@@ -107,9 +107,9 @@ moreModal.addEventListener('click', e => { if (e.target === moreModal) closeModa
 // =============================================
 const fullscreenNav = document.getElementById('fullscreenNav');
 
-const heroEyeOpen  = document.querySelector('.hero-nav .eye-wrapper .eye:not(.hide)');
+const heroEyeOpen = document.querySelector('.hero-nav .eye-wrapper .eye:not(.hide)');
 const heroEyeClose = document.querySelector('.hero-nav .eye-wrapper .eye.hide');
-const modalEyeOpen  = document.querySelector('.modal-eye-wrapper .eye:not(.hide)');
+const modalEyeOpen = document.querySelector('.modal-eye-wrapper .eye:not(.hide)');
 const modalEyeClose = document.querySelector('.modal-eye-wrapper .eye.hide');
 
 function openNav() {
@@ -119,15 +119,16 @@ function openNav() {
 
 function closeNav() {
     fullscreenNav.classList.remove('active');
-    heroEyeClose.style.display = 'none';
-    heroEyeOpen.style.display  = 'flex';
+    heroEyeClose.style.display  = 'none';
+    heroEyeOpen.style.display   = 'flex';
+    modalEyeClose.style.display = 'none'; 
+    modalEyeOpen.style.display  = 'flex';  
     document.body.style.overflow = '';
 }
-
 // hero eye btn
 heroEyeOpen.addEventListener('click', () => {
     openNav();
-    heroEyeOpen.style.display  = 'none';
+    heroEyeOpen.style.display = 'none';
     heroEyeClose.style.display = 'flex';
 });
 heroEyeClose.addEventListener('click', closeNav);
@@ -136,13 +137,13 @@ heroEyeClose.addEventListener('click', closeNav);
 modalEyeOpen.addEventListener('click', () => {
     closeModal();
     openNav();
-    modalEyeOpen.style.display  = 'none';
+    modalEyeOpen.style.display = 'none';
     modalEyeClose.style.display = 'flex';
 });
 modalEyeClose.addEventListener('click', () => {
     closeNav();
     modalEyeClose.style.display = 'none';
-    modalEyeOpen.style.display  = 'flex';
+    modalEyeOpen.style.display = 'flex';
 });
 
 // nav hide btn (top right)
