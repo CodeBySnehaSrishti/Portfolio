@@ -1,3 +1,10 @@
+
+// arrow scroll to info-section
+// =============================================
+document.querySelector('.arrow-indicator').addEventListener('click', () => {
+    document.querySelector('.info-section').scrollIntoView({ behavior: 'smooth' });
+});
+
 // =============================================
 // circular text
 // =============================================
@@ -154,7 +161,31 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeModal(); closeNav(); }
 });
 
+// =============================================
+// chatbot — ai-bot trigger
+// =============================================
+// =============================================
+// chatbot — open / close only
+// =============================================
+const chatOverlay = document.getElementById('chatOverlay');
+const chatClose   = document.getElementById('chatClose');
 
-// =============================================
-// contact form — emailjs
-// =============================================
+document.querySelector('.ai-bot').addEventListener('click', () => {
+    chatOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+chatClose.addEventListener('click', closeChatbot);
+chatOverlay.addEventListener('click', e => {
+    if (e.target === chatOverlay) closeChatbot();
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeChatbot();
+});
+
+function closeChatbot() {
+    chatOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+
